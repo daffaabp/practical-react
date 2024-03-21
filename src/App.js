@@ -1,30 +1,9 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Body, {Body2, Body3} from "./components/Body";
+import Header from "./components/Header";
+import Counter from "./components/Counter";
 
-const Body = props => (<div>
-  <p className="App-intro">{props.text}</p>
-  <p className="App-intro">{props.text2}</p>
-  <p className="App-intro">{props.myFunc(1,2) }</p>
-</div>
-);
-
-class Header extends Component {
-  render() {
-  const objectA = JSON.stringify(this.props.myObj.a)
-    return (
-      
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">{this.props.title}</h1>
-        <div>{this.props.num}</div>
-        <div>{this.props.myObj.a}</div>
-        <div>{this.props.myFunc(10, 12)}</div>
-        <div>{objectA}</div>
-      </header>
-    );
-  }
-}
 
 class App extends Component {
  add(a, b) {
@@ -43,8 +22,12 @@ class App extends Component {
           b: 6
          }}
          />
+         
+        <Body2 />
+        <Body3 />
         <Body myFunc={this.add} text="I'am Cool" text2="I'am also Cool2" />
-        <Body myFunc={this.add} text="I'am Cool" text2="I'am also Cool2" />
+        <Counter initialCount={0} />
+        <Counter initialCount={10} />
       </div>
     );
   }
